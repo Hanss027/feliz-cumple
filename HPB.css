@@ -1,0 +1,128 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffe6f2; /* Fondo suave rosado */
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    position: relative; /* Necesario para posicionar los globos */
+    overflow-x: hidden; /* Evitar scroll horizontal si los globos salen del marco */
+}
+
+h1 {
+    color: #ff66b2; /* Rosa brillante */
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #555;
+    margin: 0 auto;
+    max-width: 800px;
+    background-color: #fff0f5; /* Fondo suave para el párrafo */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Añadir globos decorativos, cada uno con una imagen distinta y posición única */
+body::before, body::after, .balloon-1, .balloon-2, .balloon-3, .balloon-4 {
+    content: '';
+    position: absolute;
+    width: 150px;  /* Ajuste de tamaño para que los globos se vean mejor */
+    height: 200px; /* Proporción ajustada para un globo realista */
+    background-size: cover; /* Asegura que la imagen llene el área de manera proporcional */
+    background-repeat: no-repeat;
+}
+
+/* Primer globo (izquierda arriba) */
+body::before {
+    top: 180px;
+    left: 30px;
+    background-image: url('otra.jpg');
+    animation: balloon-float 3.5s ease-in-out infinite;
+}
+
+/* Segundo globo (derecha arriba) */
+body::after {
+    top: 180px;
+    right: 30px;
+    background-image: url('si.jpg');
+    animation: balloon-float 3.5s ease-in-out infinite alternate;
+}
+
+/* Tercer globo (izquierda abajo) */
+.balloon-1 {
+    bottom: 100px;
+    left: 30px;
+    background-image: url('negrota.jpg');
+    animation: balloon-float 4s ease-in-out infinite alternate;
+}
+
+/* Cuarto globo (derecha abajo) */
+.balloon-2 {
+    bottom: 100px;
+    right: 30px;
+    background-image: url('otra,jpg');
+    animation: balloon-float 4s ease-in-out infinite;
+}
+
+/* Quinto globo (más abajo y alejado de los anteriores) */
+.balloon-3 {
+    top: 400px; /* Ajuste para posicionarlo más abajo */
+    left: 100px; /* Ajuste para separarlo más del centro */
+    background-image: url('negrota.jpg');
+    animation: balloon-float 5s ease-in-out infinite;
+}
+
+/* Sexto globo (más abajo y alejado de los anteriores) */
+.balloon-4 {
+    top: 400px; /* Ajuste para posicionarlo más abajo */
+    right: 100px; /* Ajuste para separarlo más del centro */
+    background-image: url('negrota2.jpg');
+    animation: balloon-float 5s ease-in-out infinite alternate;
+}
+
+/* Estilo para centrar el texto y darle un aire más festivo */
+center h1 {
+    font-family: 'Comic Sans MS', sans-serif;
+    color: #ff4081; /* Rosa brillante */
+    font-size: 2.8rem;
+    margin-top: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+p {
+    color: #ff1493; /* Color rosa oscuro para el texto */
+    font-family: 'Verdana', sans-serif;
+    margin-top: 20px;
+}
+
+/* Animación sutil para los globos */
+@keyframes balloon-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-25px); /* Ajuste del desplazamiento para que el movimiento sea más visible */
+    }
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem; /* Reduce el tamaño de la fuente en móviles */
+    }
+    p {
+        font-size: 1.2rem; /* Reduce el tamaño del texto en móviles */
+        padding: 10px; /* Reduce el padding en móviles */
+    }
+    body::before, body::after, .balloon-1, .balloon-2, .balloon-3, .balloon-4 {
+        width: 100px;  /* Ajuste de tamaño para móviles */
+        height: 130px; /* Proporción ajustada para un globo realista en móviles */
+    }
+}
